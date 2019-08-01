@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tablero-control tipo="SINCRONICO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- **************************************************************************
+    BASE DE DATOS SQL SERVER
+    *************************************************************************** -->
+    <contexto-verificacion id="contexto_verificacion_base_datos_conectividad_sqlserver" xsi:type="contextoVerificacionBaseDatos">
+
+        <!-- Datos servicio CyberArk -->
+        <identificadorBoveda></identificadorBoveda>
+        <urlServicioBoveda></urlServicioBoveda>
+        <appIdCyberArk></appIdCyberArk>
+        <folderCyberArk></folderCyberArk>
+        <safeCyberArk></safeCyberArk>
+        <driver></driver>
+
+
+        <driver></driver>
+        <url></url>
+        <sentenciaVerificacion>SELECT GETDATE()</sentenciaVerificacion>
+    </contexto-verificacion>
+    <comando id="comando_base_datos_conectividad_sqlserver" tipo="co.itac.banrep.tablerocontrol.modelo.basedatos.ComandoVerificacionBaseDatos">
+        <contexto>contexto_verificacion_base_datos_conectividad_sqlserver</contexto>
+    </comando>
+    <indicador id="indicador_base_datos_conectividad_sqlserver" tipo="co.itac.banrep.tablerocontrol.modelo.impl.IndicadorEco"/>
+    <relacion>
+        <comando>comando_base_datos_conectividad_sqlserver</comando>
+        <indicador>indicador_base_datos_conectividad_sqlserver</indicador>
+    </relacion>
+
+</tablero-control>
