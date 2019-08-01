@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tablero-control tipo="SINCRONICO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- **************************************************************************
+               JBOSS: DATASOURCES
+    *************************************************************************** -->
+    <!-- Hace Test Connection sobre cada data source -->
+    <contexto-verificacion id="contexto_verificacion_data_source_jboss" xsi:type="contextoVerificacionDataSourceJBoss">
+        <listaDataSources id="ds1">
+            <!-- Datos servicio CyberArk -->
+            <identificadorBoveda>s_3@jboss</identificadorBoveda>
+            <urlServicioBoveda>http://192.168.201.215:8080/AIMWebService/Api/Accounts</urlServicioBoveda>
+            <appIdCyberArk>ITAC_IDM</appIdCyberArk>
+            <folderCyberArk>Root</folderCyberArk>
+            <safeCyberArk>ITAC - AIM</safeCyberArk>
+
+            <protocoloDeTransferencia>http</protocoloDeTransferencia>
+            <ip>192.168.200.118</ip>
+            <puerto>9990</puerto>
+           <!-- <usuario>adminData</usuario>
+            <contrasena>administradorData/contrasena> -->
+            <host>master</host>
+            <nombreServidor>server-one</nombreServidor>
+            <nombreDataSource>S3AppletDS</nombreDataSource>
+            <!--true cuando el tipo de data source es XA-->
+            <xa>false</xa>
+        </listaDataSources>
+        <listaDataSources id="ds2">
+
+            <!-- Datos servicio CyberArk -->
+            <identificadorBoveda>s_3@jboss</identificadorBoveda>
+            <urlServicioBoveda>http://192.168.201.215:8080/AIMWebService/Api/Accounts</urlServicioBoveda>
+            <appIdCyberArk>ITAC_IDM</appIdCyberArk>
+            <folderCyberArk>Root</folderCyberArk>
+            <safeCyberArk>ITAC - AIM</safeCyberArk>
+
+            <protocoloDeTransferencia>http</protocoloDeTransferencia>
+            <ip>192.168.200.118</ip>
+            <puerto>9990</puerto>
+            <!--<usuario>adminData</usuario>
+            <contrasena>administradorData</contrasena>-->
+            <host>master</host>
+            <nombreServidor>server-one</nombreServidor>
+            <nombreDataSource>S3DS</nombreDataSource>
+            <!--true cuando el tipo de data source es XA-->
+            <xa>false</xa>
+        </listaDataSources>
+    </contexto-verificacion>
+    <comando id="comando_verificacion_data_source_jboss" tipo="co.itac.banrep.tablerocontrol.modelo.servidor.jboss.datasource.ComandoVerificacionDataSourceJBoss">
+        <contexto>contexto_verificacion_data_source_jboss</contexto>
+    </comando>
+    <indicador id="indicador_data_source_jboss" tipo="co.itac.banrep.tablerocontrol.modelo.impl.IndicadorEco"/>
+    <relacion>
+        <comando>comando_verificacion_data_source_jboss</comando>
+        <indicador>indicador_data_source_jboss</indicador>
+    </relacion>
+
+</tablero-control>
+
